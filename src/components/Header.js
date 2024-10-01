@@ -15,7 +15,7 @@ function Header () {
        
           <li className="mr-20"> 
             <img width={18} height={18} src="/img/cart.svg" alt="cart" />
-          <span>1205 руб</span>
+          <span className="Sum p-10">1205 руб</span>
           </li>
           <li> 
           <img width={18} height={18} src="/img/user.svg" alt="user"/>

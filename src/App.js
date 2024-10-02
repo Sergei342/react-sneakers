@@ -54,7 +54,11 @@ function App() {
          <Card 
          title = {obj.name} 
          price = {obj.price} 
-         imageUrl ={obj.imageUrl} />
+         imageUrl ={obj.imageUrl}
+         onClickPlus={ () => console.log(obj)} 
+         onClickFavorite={ () => console.log(obj)} 
+         />
+         
 
       ))}
       

@@ -5,8 +5,17 @@ import Drawer from './components/Drawer';
 
 
 function App() {
-  const [items, setItems] = React.useState([])
-  const [cartItems, setCartItems] = React.useState (false)
+  const [items, setItems] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState ([{
+    "name": "Мужские кроссовки Nike Blazer",
+    "price": 12999,
+    "imageUrl": "/img/sneakers/1.jpg"
+  },
+  {
+    "name": "Мужские кроссовки Nike Air Max",
+    "price": 15600,
+    "imageUrl": "/img/sneakers/2.jpg"
+  }]);
   const [cartOpened, setCartOpened] = React.useState (false)
   
 
@@ -19,11 +28,17 @@ function App() {
     });
 
   }, []);
+
+  const onAddToCart = (obj) => { 
+    setCartItems( prev => [... prev, obj])
+
+
+  }
   
 
 
   return <div className="Wrapper clear">
-    { cartOpened ? < Drawer onClose = {() => setCartOpened(false)} /> : null}
+    { cartOpened && < Drawer items = {cartItems} onClose = {() => setCartOpened(false)} /> }
     < Header onClickCart = {() => setCartOpened(true)} onCloseCart = {() => setCartOpened(false) } />
 
 
@@ -31,7 +46,7 @@ function App() {
       
       <div className="d-flex align-center mb-40 justify-between">
 
-      <h1>Все кросовки</h1>
+      <h1>Все кроссовки</h1>
       <div className="search-block d-flex">
         <img src="/img/search.svg" alt="search" />
         <input placeholder="Поиск.." />
@@ -42,13 +57,13 @@ function App() {
       
       <div className="d-flex flex-start flex-wrap">
       
-      {items.map((obj) => (
+      {items.map((item) => (
          <Card 
-         title = {obj.name} 
-         price = {obj.price} 
-         imageUrl ={obj.imageUrl}
-         onClickPlus={ () => console.log(obj)} 
-         onClickFavorite={ () => console.log(obj)} 
+         title = {item.name} 
+         price = {item.price} 
+         imageUrl ={item.imageUrl}
+         onPlus={ (obj) => onAddToCart (obj)}
+         onFavorite={ () => console.log('добавили')} 
          />
          
 

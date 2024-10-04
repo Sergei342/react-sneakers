@@ -6,16 +6,7 @@ import Drawer from './components/Drawer';
 
 function App() {
   const [items, setItems] = React.useState([]);
-  const [cartItems, setCartItems] = React.useState ([{
-    "name": "Мужские кроссовки Nike Blazer",
-    "price": 12999,
-    "imageUrl": "/img/sneakers/1.jpg"
-  },
-  {
-    "name": "Мужские кроссовки Nike Air Max",
-    "price": 15600,
-    "imageUrl": "/img/sneakers/2.jpg"
-  }]);
+  const [cartItems, setCartItems] = React.useState ([]);
   const [cartOpened, setCartOpened] = React.useState (false)
   
 

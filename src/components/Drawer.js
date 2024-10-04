@@ -17,7 +17,7 @@ function Drawer ({onClose, items = []}) {
                   className = "cartItemImg"></div>
 
                   <div className="mr-20 flex">
-                    <p className="mb-5">{obj.name}</p>
+                    <p className="mb-5">{obj.title}</p>
                     <b> {obj.price} руб.</b>
                   </div>
                   
